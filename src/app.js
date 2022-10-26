@@ -1,6 +1,6 @@
 const express = require('express');
 const authController = require('./controllers/auth.controller');
-
+const userController = require('./controllers/user.controller');
 // ...
 
 const app = express();
@@ -8,6 +8,8 @@ const app = express();
 app.use(express.json());
 
 app.post('/login', authController.login);
+
+app.post('/user', userController.createUser);
 
 // ...
 
