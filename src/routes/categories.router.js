@@ -6,6 +6,7 @@ const router = express.Router();
 
 router.use(authMiddleware.validateToken);
 
+router.get('/', categoriesController.getAllCategory);
 router.post('/', categoriesController.createCategory);
 
 module.exports = router;

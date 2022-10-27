@@ -18,6 +18,12 @@ const createUser = async (body) => {
   return { type: null, message: newCategory };
 };
 
+const getAllCategory = async () => {
+  const categories = await Category.findAll();
+  return categories;
+};
+
 module.exports = {
   createUser,
+  getAllCategory,
 };
