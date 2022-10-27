@@ -9,5 +9,6 @@ router.post('/', userController.createUser);
 router.use(authMiddleware.validateToken);
 
 router.get('/', userController.findAll);
+router.get('/:id', userController.findById);
 
 module.exports = router;
