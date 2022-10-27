@@ -26,7 +26,21 @@ const validateUserBody = (body) => {
   return { type: null, message: '', value };
 };
 
+const validateCategoryBody = (body) => {
+  console.log(body);
+  const { error } = schemas.categoriesSchema.validate(body);
+  if (error) {
+  return {
+    type: 'INVALID_VALUE',
+    message: error.message,
+  };
+  }
+
+    return { type: null, message: '' };
+};
+
 module.exports = {
   validateLoginBody,
   validateUserBody,
+  validateCategoryBody,
 };

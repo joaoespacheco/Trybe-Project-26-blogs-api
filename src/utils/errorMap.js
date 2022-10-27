@@ -3,6 +3,7 @@ const errorMap = {
   INVALID_LOGIN: 400,
   INVALID_TOKEN: 401,
   USER_CONFLICT: 409,
+  CATEGORY_CONFLICT: 409,
 };
 
 const setError = (type) => errorMap[type] || 500;

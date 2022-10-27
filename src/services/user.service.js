@@ -3,7 +3,7 @@ const validations = require('./validations/validationsInputValues');
 const { User } = require('../models');
 
 const validateUser = async (body) => {
-  const { type, message, value } = await validations.validateUserBody(body);
+  const { type, message, value } = validations.validateUserBody(body);
   if (type) return { type, message };
 
   const { email } = value;
