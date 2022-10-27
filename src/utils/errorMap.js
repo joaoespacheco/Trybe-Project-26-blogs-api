@@ -1,6 +1,7 @@
 const errorMap = {
   INVALID_VALUE: 400,
   INVALID_LOGIN: 400,
+  INVALID_TOKEN: 401,
   USER_CONFLICT: 409,
 };
 

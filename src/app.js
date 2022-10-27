@@ -1,15 +1,14 @@
 const express = require('express');
-const authController = require('./controllers/auth.controller');
-const userController = require('./controllers/user.controller');
+require('express-async-errors');
+const routes = require('./routes/router');
+
 // ...
 
 const app = express();
 
 app.use(express.json());
 
-app.post('/login', authController.login);
-
-app.post('/user', userController.createUser);
+app.use(routes);
 
 // ...
 

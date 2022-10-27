@@ -11,6 +11,13 @@ const createUser = async (req, res) => {
   res.status(201).json({ token });
 };
 
+const findAll = async (req, res) => {
+  const users = await userService.findAll();
+
+  res.status(200).json(users);
+};
+
 module.exports = {
   createUser,
+  findAll,
 };
