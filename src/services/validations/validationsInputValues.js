@@ -27,7 +27,6 @@ const validateUserBody = (body) => {
 };
 
 const validateCategoryBody = (body) => {
-  console.log(body);
   const { error } = schemas.categoriesSchema.validate(body);
   if (error) {
   return {
@@ -39,8 +38,21 @@ const validateCategoryBody = (body) => {
     return { type: null, message: '' };
 };
 
+const validatePostBody = (body) => {
+  const { error } = schemas.postSchema.validate(body);
+  if (error) {
+  return {
+    type: 'INVALID_VALUE',
+    message: 'Some required fields are missing',
+  };
+  }
+
+    return { type: null, message: '' };
+};
+
 module.exports = {
   validateLoginBody,
   validateUserBody,
   validateCategoryBody,
+  validatePostBody,
 };
