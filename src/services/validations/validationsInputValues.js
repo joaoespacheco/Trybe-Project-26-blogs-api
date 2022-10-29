@@ -50,9 +50,22 @@ const validatePostBody = (body) => {
     return { type: null, message: '' };
 };
 
+const validatePostUpdate = (body) => {
+  const { error } = schemas.postUpdateSchema.validate(body);
+  if (error) {
+  return {
+    type: 'INVALID_VALUE',
+    message: 'Some required fields are missing',
+  };
+  }
+
+    return { type: null, message: '' };
+};
+
 module.exports = {
   validateLoginBody,
   validateUserBody,
   validateCategoryBody,
   validatePostBody,
+  validatePostUpdate,
 };

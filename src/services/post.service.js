@@ -57,8 +57,31 @@ const getPostById = async (id) => {
   return post;
 };
 
+const updatePost = async (id, reqBody, user) => {
+  const { type, message } = validations.validatePostUpdate(reqBody);
+  if (type) return { type, message };
+
+  const validateId = await getPostById(id);
+  if (!validateId) return { type: 'INVALID_VALUE', message: 'Post not found' };
+
+  const { user: { dataValues } } = validateId;
+
+  const validateUser = dataValues.id === user.id;
+  if (!validateUser) return { type: 'INVALID_USER', message: 'Unauthorized user' };
+
+  await BlogPost.update(
+    { ...reqBody },
+    { where: { id } },
+  );
+
+  const postUpdated = await getPostById(id);
+
+  return { type: null, message: postUpdated };
+};
+
 module.exports = {
   createPost,
   getAllPosts,
   getPostById,
+  updatePost,
 };
