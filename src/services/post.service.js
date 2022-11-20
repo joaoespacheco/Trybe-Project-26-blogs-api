@@ -78,10 +78,24 @@ const updatePost = async (id, reqBody, user) => {
 
   return { type: null, message: postUpdated };
 };
+ 
+const excludePost = async (userId, postId) => {
+  const post = await getPostById(postId);
+  
+  if (!post) return { type: 404, message: 'Post does not exist' };
+
+  if (post.userId !== userId) {
+    return { type: 401, message: 'Unauthorized user' };
+  }
+
+  await BlogPost.destroy({ where: { id: postId } });
+  return { type: null, message: '' };
+};
 
 module.exports = {
   createPost,
   getAllPosts,
   getPostById,
   updatePost,
+  excludePost,
 };
