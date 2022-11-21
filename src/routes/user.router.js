@@ -4,9 +4,10 @@ const authMiddleware = require('../middlewares/auth.middleware');
 
 const router = express.Router();
 
+router.post('/', userController.createUser);
+
 router.use(authMiddleware.validateToken);
 
-router.post('/', userController.createUser);
 router.get('/', userController.findAll);
 router.get('/:id', userController.findById);
 
