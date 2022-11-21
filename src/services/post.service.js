@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const validations = require('./validations/validationsInputValues');
 const { BlogPost, Category, PostCategory, User } = require('../models');
 
@@ -57,6 +58,36 @@ const getPostById = async (id) => {
   return post;
 };
 
+const getPostBySearchAndColumn = async (searchTerm, column) => {
+  const posts = await BlogPost.findAll({
+    where: { 
+      [column]: { 
+        [Op.like]: `%${searchTerm}%`, 
+      }, 
+    },
+    include: [
+      {
+        model: User,
+        as: 'user',
+        attributes: { exclude: ['password'] },
+      },
+      { model: Category, as: 'categories' },
+    ],
+  });
+
+  return posts;
+};
+
+const getPostBySearch = async (searchTerm) => {
+  const postByTitle = await getPostBySearchAndColumn(searchTerm, 'title');
+  if (postByTitle.length > 0) return postByTitle;
+
+  const postByContent = await getPostBySearchAndColumn(searchTerm, 'content');
+  if (postByContent.length > 0) return postByContent;
+
+  return [];
+};
+
 const updatePost = async (id, reqBody, user) => {
   const { type, message } = validations.validatePostUpdate(reqBody);
   if (type) return { type, message };
@@ -96,6 +127,7 @@ module.exports = {
   createPost,
   getAllPosts,
   getPostById,
+  getPostBySearch,
   updatePost,
   excludePost,
 };

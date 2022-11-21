@@ -24,6 +24,13 @@ const getPostById = async (req, res) => {
   res.status(200).json(post);
 };
 
+const getPostBySearch = async (req, res) => {
+  const { q: searchTerm } = req.query;
+  console.log('chamou o controller');
+  const postsFound = await postService.getPostBySearch(searchTerm);
+  res.status(200).json(postsFound);
+};
+
 const updatePost = async (req, res) => {
   const { id } = req.params;
   const { body, user } = req;
@@ -47,6 +54,7 @@ module.exports = {
   createPost,
   getAllPosts,
   getPostById,
+  getPostBySearch,
   updatePost,
   excludePost,
 };

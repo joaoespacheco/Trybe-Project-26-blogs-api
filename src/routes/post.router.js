@@ -7,6 +7,7 @@ const router = express.Router();
 router.use(authMiddleware.validateToken);
 
 router.get('/', postController.getAllPosts);
+router.get('/search', postController.getPostBySearch);
 router.get('/:id', postController.getPostById);
 router.post('/', postController.createPost);
 router.put('/:id', postController.updatePost);
