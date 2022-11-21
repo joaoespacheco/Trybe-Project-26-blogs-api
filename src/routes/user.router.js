@@ -10,5 +10,6 @@ router.use(authMiddleware.validateToken);
 
 router.get('/', userController.findAll);
 router.get('/:id', userController.findById);
+router.delete('/me', userController.removeUser);
 
 module.exports = router;
