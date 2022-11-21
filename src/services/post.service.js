@@ -36,7 +36,7 @@ const getAllPosts = async () => {
         as: 'user',
         attributes: { exclude: ['password'] },
       },
-      { model: Category, as: 'categories' },
+      { model: Category, as: 'categories', through: { attributes: [] } },
     ],
   });
 
@@ -51,7 +51,7 @@ const getPostById = async (id) => {
         as: 'user',
         attributes: { exclude: ['password'] },
       },
-      { model: Category, as: 'categories' },
+      { model: Category, as: 'categories', through: { attributes: [] } },
     ],
   });
 
@@ -71,7 +71,7 @@ const getPostBySearchAndColumn = async (searchTerm, column) => {
         as: 'user',
         attributes: { exclude: ['password'] },
       },
-      { model: Category, as: 'categories' },
+      { model: Category, as: 'categories', through: { attributes: [] } },
     ],
   });
 
