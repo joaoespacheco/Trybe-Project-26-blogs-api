@@ -74,7 +74,7 @@ Lista todos os usuários cadastrados no banco de dados </br>
 
 </details>
 <details>
-<summary><strong>GET /user:id</strong></summary>
+<summary><strong>GET /user/{ userId }</strong></summary>
 
 Lista apenas o usuário correspondente ao id da rota </br>
 > * Se bem-sucedido, retorna status 200 e um objeto contendo as informações do usuário
@@ -120,14 +120,14 @@ Lista todas as publicações cadastradas no banco de dados </br>
 
 </details>
 <details>
-<summary><strong>GET /post:id</strong></summary>
+<summary><strong>GET /post/{ postId }</strong></summary>
 
 Lista apenas a publicação correspondente ao id da rota </br>
 > * Se bem-sucedido, retorna status 200 e um objeto contendo as informações da publicação
 
 </details>
 <details>
-<summary><strong>GET /post/search?q=:searchTerm</strong></summary>
+<summary><strong>GET /post/search?q={ searchTerm }</strong></summary>
 
 Lista todas as publicações que possuem em seu titulo ou conteúdo o termo passado na rota </br>
 > * Se bem-sucedido, retorna status 200 e um array contendo as informações das publicações encontradas
@@ -141,7 +141,7 @@ Cadastra uma nova publicação no banco de dados </br>
 
 </details>
 <details>
-<summary><strong>PUT /post:id</strong></summary>
+<summary><strong>PUT /post/{ postId }</strong></summary>
 
 Altera as informações da publicação correspondente ao id da rota</br>
 > * Se bem-sucedido, retorna status 200 e um objeto contendo as informações atualizadas da publicação, do criador da publicação e de suas categorias
