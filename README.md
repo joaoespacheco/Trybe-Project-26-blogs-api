@@ -148,7 +148,7 @@ Altera as informações da publicação correspondente ao id da rota</br>
 
 </details>
 <details>
-<summary><strong>DELETE /post:id</strong></summary>
+<summary><strong>DELETE /post/{ postId }</strong></summary>
 
 Remove a publicação correspondente ao id da rota</br>
 > * Se bem-sucedido, retorna apenas o status 204
