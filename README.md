@@ -56,95 +56,113 @@ Aprovado com 100% de desempenho em todos os requisitos
 </br>
 
 ## ↪️ Rotas:
-### Products:
+### Login:
 <details>
-<summary><strong>GET /products</strong></summary>
+<summary><strong>POST /login</strong></summary>
  
-Lista todos os produtos cadastrados no banco de dados </br>
-> * Se bem-sucedido, retorna status 200 e um array com todos os produtos cadastrados
+Esta rota é responsável por fazer o login na API </br>
+> * Se bem-sucedido, retorna status 200 e um token
+
+</details>
+
+### User:
+<details>
+<summary><strong>GET /user</strong></summary>
+
+Lista todos os usuários cadastrados no banco de dados </br>
+> * Se bem-sucedido, retorna status 200 e array contendo todos os usuários encontrados
 
 </details>
 <details>
-<summary><strong>GET /products/:id</strong></summary>
- 
-Lista apenas o produto correspondente ao id da rota </br>
-> * Se bem-sucedido, retorna status 200 e um objeto contendo as informações do produto
+<summary><strong>GET /user:id</strong></summary>
+
+Lista apenas o usuário correspondente ao id da rota </br>
+> * Se bem-sucedido, retorna status 200 e um objeto contendo as informações do usuário
 
 </details>
 <details>
-<summary><strong>GET /products/search?q=searchTerm</strong></summary>
- 
-Lista todos os produtos que possuem em seu nome o termo passado na rota</br>
-> * Se bem-sucedido, retorna status 200 e um array contendo os produtos que correspondem a busca
-> * Se o termo de busca for vazio, retorna status 200 e um array contendo todos os produtos cadastrados
+<summary><strong>POST /user</strong></summary>
+
+Cadastra um novo usuário no banco de dados </br>
+> * Se bem-sucedido, retorna status 201 e um token
 
 </details>
 <details>
-<summary><strong>POST /products</strong></summary>
- 
-Cadastra um novo produto no banco de dados</br>
-> * Se bem-sucedido, retorna status 201 e um objeto contendo os dados do novo produto
+<summary><strong>DELETE /user/me</strong></summary>
 
-</details>
-<details>
-<summary><strong>PUT /products/:id</strong></summary>
- 
-Altera as informações de um produto cadastrado no banco de dados </br>
-> * Se bem-sucedido, retorna status 200 e um objeto contendo os dados atualizados do produto
-
-</details>
-<details>
-<summary><strong>DELETE /products/:id</strong></summary>
- 
-Remove um produto cadastrado do banco de dados </br>
+Remove o usuário vinculado ao token inserido na requisição</br>
 > * Se bem-sucedido, retorna apenas o status 204
 
 </details>
 
-### Sales:
+### Categories:
 <details>
-<summary><strong>GET /sales</strong></summary>
+<summary><strong>GET /categories</strong></summary>
 
-Lista todas as vendas cadastradas no banco de dados </br>
-> * Se bem-sucedido, retorna status 200 e um array com todas as vendas cadastradas
+Lista todas as categorias cadastradas no banco de dados </br>
+> * Se bem-sucedido, retorna status 200 e um array contendo as informações de todas as categorias encontradas
 
 </details>
 <details>
-<summary><strong>GET /sales/:id</strong></summary>
+<summary><strong>POST /categories</strong></summary>
 
-Lista apenas a venda correspondente ao id da rota </br>
-> * Se bem-sucedido, retorna status 200 e um array contendo as informações da venda
+Cadastra uma nova categoria no banco de dados </br>
+> * Se bem-sucedido, retorna status 201 e um objeto contendo as informações da nova categoria
+
+</details>
+
+### Post:
+<details>
+<summary><strong>GET /post</strong></summary>
+
+Lista todas as publicações cadastradas no banco de dados </br>
+> * Se bem-sucedido, retorna status 200 e um array contendo as informações de todas as publicações encontradas
 
 </details>
 <details>
-<summary><strong>POST /sales</strong></summary>
+<summary><strong>GET /post:id</strong></summary>
 
-Cadastra uma nova venda no banco de dados </br>
-> * Se bem-sucedido, retorna status 201 e um objeto contendo o id da venda e um array com as informações dos produtos vendidos
-
-</details>
-<details>
-<summary><strong>PUT /sales/:id</strong></summary>
-
-Altera as informações de uma venda cadastrada no banco de dados
-> * Se bem-sucedido, retorna status 200 e um objeto contendo o id da venda e um array com as informações atualizadas dos produtos vendidos
+Lista apenas a publicação correspondente ao id da rota </br>
+> * Se bem-sucedido, retorna status 200 e um objeto contendo as informações da publicação
 
 </details>
 <details>
-<summary><strong>DELETE /sales/:id</strong></summary>
+<summary><strong>GET /post/search?q=:searchTerm</strong></summary>
 
-Remove uma venda cadastrada no banco de dados
-> * Se bem-sucedido, retorna apenas um status 204
+Lista todas as publicações que possuem em seu titulo ou conteúdo o termo passado na rota </br>
+> * Se bem-sucedido, retorna status 200 e um array contendo as informações das publicações encontradas
+
+</details>
+<details>
+<summary><strong>POST /post</strong></summary>
+
+Cadastra uma nova publicação no banco de dados </br>
+> * Se bem-sucedido, retorna status 201 e um objeto contendo as informações da nova publicação
+
+</details>
+<details>
+<summary><strong>PUT /post:id</strong></summary>
+
+Altera as informações da publicação correspondente ao id da rota</br>
+> * Se bem-sucedido, retorna status 200 e um objeto contendo as informações atualizadas da publicação, do criador da publicação e de suas categorias
+
+</details>
+<details>
+<summary><strong>DELETE /post:id</strong></summary>
+
+Remove a publicação correspondente ao id da rota</br>
+> * Se bem-sucedido, retorna apenas o status 204
 
 </details>
 </br>
 
-
 ## 🤹🏽 Habilidades Desenvolvidas:
 * Criar uma aplicação utilizando Express.js
 * Criar uma API RESTful utilizando arquitetura MSC (Model-Service-Controller)
-* Validar dados das requisições utilizando a biblioteca Joi
-* Implementar testes unitários utilizando as ferramentas Mocha, Chai e Sinon
+* Validar os dados das requisições utilizando a biblioteca Joi
+* Criar um banco de dados, suas migrations, models e associações entre as tabelas
+* Utilizar ORM Sequelize para realizar as conexões e as queries ao banco de dados
+* Implementar autenticação via token utilizando JSON Web Token
 </br>
 
 ## 🧰 Ferramentas:
