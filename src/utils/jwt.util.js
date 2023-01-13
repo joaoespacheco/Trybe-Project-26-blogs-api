@@ -10,10 +10,16 @@ const createToken = (data) => {
     return token;
 };
 
-const validateToken = (token) => {
+const validateToken = (authorization) => {
     try {
-        const { data } = jwt.verify(token, process.env.JWT_SECRET);
-        return { type: null, message: data };
+      const bearerToken = authorization.startsWith('Bearer ') ? (
+        authorization)
+         : (
+          `Bearer ${authorization}`
+        );
+      const token = authorization ? bearerToken.substring(7, bearerToken.length) : authorization;
+      const { data } = jwt.verify(token, process.env.JWT_SECRET);
+      return { type: null, message: data };
     } catch (error) {
       return { type: 'INVALID_TOKEN', message: error.message };
     }
