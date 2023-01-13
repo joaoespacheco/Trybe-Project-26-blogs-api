@@ -17,6 +17,9 @@ Para as funções de autenticação foi utilizado a ferramenta <strong>JSON Web 
 <details>
 <summary><strong>Desempenho</strong></summary>
 Aprovado com 100% de desempenho em todos os requisitos
+
+![image](https://user-images.githubusercontent.com/99846604/212220238-367948e8-a802-4424-9c88-8ca8cb090f21.png)
+
 </details>
 
 <details>
@@ -55,105 +58,72 @@ Aprovado com 100% de desempenho em todos os requisitos
 </details>
 </br>
 
+## ⚙️ Execução
+
+Para executar a aplicação inicie realizando o clone deste repositório com o comando abaixo.
+
+      git clone git@github.com:joaoespacheco/Trybe-Project.26-blogs-api.git
+
+Navegue até a raíz do projeto.
+
+      cd Trybe-Project.26-blogs-api/
+      
+Uma vez na raiz do projeto, execute o comando abaixo para instalar as dependências do projeto.
+    
+    npm install
+<br/>
+
+<details>
+   <summary><strong>Rodando a aplicação com o Docker</strong></summary>
+  </br>
+
+   Na pasta raiz do projeto, suba o container através do docker-compose.yml, utilizando o comando abaixo.
+
+        docker-compose up -d
+
+   Entre no terminal do container
+
+        docker exec -it blogs_api bash
+        
+   Caso não tenha instalado anteriormente, uma vez no terminal do container, execute o comando abaixo para instalar as dependências do projeto.
+
+        npm install
+        
+   Para criar o banco e executar as migrations utilize o seguinte comando no terminal do container
+   
+        npm run prestart
+
+   Para popular o banco criado utilize o seguinte comando no terminal do container
+   
+        npm run seed
+        
+   Para iniciar o servidor utilize o seguinte comando no terminal do container
+
+        npm run start
+        
+   Para iniciar o servidor no modo de desenvolvimento utilize o seguinte comando no terminal do container
+
+        npm run debug
+
+   Para dropar o banco criado utilize o seguinte comando no terminal do container
+   
+        npm run drop
+
+</details>
+</br>
+
 ## ↪️ Rotas:
-### Login:
-<details>
-<summary><strong>POST /login</strong></summary>
- 
-Esta rota é responsável por fazer o login na API </br>
-> * Se bem-sucedido, retorna status 200 e um token
 
-</details>
+A documentação referente as rotas foi confeccionada utilizando a ferramenta Swagger/OpenAPI e pode ser visualizada de duas maneiras:
 
-### User:
-<details>
-<summary><strong>GET /user</strong></summary>
+### Acessando as informações das rotas localmente:
+A documentação das rotas pode ser acessada após iniciar a aplicação localmente de acordo com as instruções da seção anterior chamada "Execução". </br> 
+</br>
+Para visualizar as rotas e testar as requisições você pode utilizar a rota http://localhost:3000/api-docs. Caso preferir, você também pode utilizar um cliente de requisições HTTP de sua preferência (Insomnia, Thunder Client, etc) para realizar os testes.
 
-Lista todos os usuários cadastrados no banco de dados </br>
-> * Se bem-sucedido, retorna status 200 e array contendo todos os usuários encontrados
-
-</details>
-<details>
-<summary><strong>GET /user/{ userId }</strong></summary>
-
-Lista apenas o usuário correspondente ao id da rota </br>
-> * Se bem-sucedido, retorna status 200 e um objeto contendo as informações do usuário
-
-</details>
-<details>
-<summary><strong>POST /user</strong></summary>
-
-Cadastra um novo usuário no banco de dados </br>
-> * Se bem-sucedido, retorna status 201 e um token
-
-</details>
-<details>
-<summary><strong>DELETE /user/me</strong></summary>
-
-Remove o usuário vinculado ao token inserido na requisição</br>
-> * Se bem-sucedido, retorna apenas o status 204
-
-</details>
-
-### Categories:
-<details>
-<summary><strong>GET /categories</strong></summary>
-
-Lista todas as categorias cadastradas no banco de dados </br>
-> * Se bem-sucedido, retorna status 200 e um array contendo as informações de todas as categorias encontradas
-
-</details>
-<details>
-<summary><strong>POST /categories</strong></summary>
-
-Cadastra uma nova categoria no banco de dados </br>
-> * Se bem-sucedido, retorna status 201 e um objeto contendo as informações da nova categoria
-
-</details>
-
-### Post:
-<details>
-<summary><strong>GET /post</strong></summary>
-
-Lista todas as publicações cadastradas no banco de dados </br>
-> * Se bem-sucedido, retorna status 200 e um array contendo as informações de todas as publicações encontradas
-
-</details>
-<details>
-<summary><strong>GET /post/{ postId }</strong></summary>
-
-Lista apenas a publicação correspondente ao id da rota </br>
-> * Se bem-sucedido, retorna status 200 e um objeto contendo as informações da publicação
-
-</details>
-<details>
-<summary><strong>GET /post/search?q={ searchTerm }</strong></summary>
-
-Lista todas as publicações que possuem em seu titulo ou conteúdo o termo passado na rota </br>
-> * Se bem-sucedido, retorna status 200 e um array contendo as informações das publicações encontradas
-
-</details>
-<details>
-<summary><strong>POST /post</strong></summary>
-
-Cadastra uma nova publicação no banco de dados </br>
-> * Se bem-sucedido, retorna status 201 e um objeto contendo as informações da nova publicação
-
-</details>
-<details>
-<summary><strong>PUT /post/{ postId }</strong></summary>
-
-Altera as informações da publicação correspondente ao id da rota</br>
-> * Se bem-sucedido, retorna status 200 e um objeto contendo as informações atualizadas da publicação, do criador da publicação e de suas categorias
-
-</details>
-<details>
-<summary><strong>DELETE /post/{ postId }</strong></summary>
-
-Remove a publicação correspondente ao id da rota</br>
-> * Se bem-sucedido, retorna apenas o status 204
-
-</details>
+### Acessando as informações das rotas online:
+Para visualizar as rotas você pode utilizar a plataforma Swagger Viewer <strong>[clicando aqui](https://swaggerviewer.ptr.red/spec/aHR0cHM6Ly9naXRodWIuY29tL2pvYW9lc3BhY2hlY28vVHJ5YmUtUHJvamVjdC4yNi1ibG9ncy1hcGkvcmF3L21haW4vc3JjL3N3YWdnZXIuanNvbg%3D%3D)</strong>.
+      
 </br>
 
 ## 🤹🏽 Habilidades Desenvolvidas:
