@@ -145,6 +145,7 @@ Para visualizar as rotas você pode utilizar a plataforma Swagger Viewer <strong
 * Sequelize
 * JSON Web Token
 * Docker
+* Swagger
 </br>
 
 ## 📝 Desenvolvido por:
